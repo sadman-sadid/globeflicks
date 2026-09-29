@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLOBEFLICKS</title>
+    <title>GLOBEFLICKS - Templates</title>
     <link rel="icon" type="image/png" sizes="32x32" href="GLOBEFLICKS.png">
     <style>
         /* CSS Reset & Variables */
@@ -43,8 +43,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2rem 5%;
+            padding: 1.5rem 5%;
             border-bottom: 1px solid var(--border-color);
+            position: relative;
         }
 
         .logo {
@@ -52,6 +53,7 @@
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
+            z-index: 101;
         }
 
         .nav-links {
@@ -74,17 +76,38 @@
             color: var(--text-color);
         }
 
-        /* Books Container */
+        /* Mobile Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 25px;
+            height: 18px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 101;
+            padding: 0;
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        /* Templates Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 1.5rem;
+            padding: 2.5rem 1.5rem;
             width: 100%;
             flex: 1;
         }
 
         .page-title {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: 700;
             letter-spacing: 1px;
             margin-bottom: 2rem;
@@ -95,17 +118,18 @@
         /* Search Section */
         .search-container {
             max-width: 600px;
-            margin: 0 auto 3rem auto;
+            margin: 0 auto 2.5rem auto;
             position: relative;
+            width: 100%;
         }
 
         .search-input {
             width: 100%;
-            padding: 1rem 1.2rem;
+            padding: 0.9rem 1.2rem;
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             color: var(--text-color);
-            font-size: 1rem;
+            font-size: 0.95rem;
             outline: none;
             transition: border-color 0.3s ease;
         }
@@ -130,19 +154,21 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             overflow: hidden;
+            text-align: center;
+            padding: 0.5rem;
         }
 
         /* Header Leaderboard Ad (Top) */
         .ad-top {
             max-width: 1200px;
-            width: 100%;
+            width: 90%;
             height: 90px;
-            margin: 2rem auto 0 auto;
+            margin: 1.5rem auto 0 auto;
         }
 
         /* Grid Ad Slot */
         .ad-card {
-            min-height: 400px;
+            min-height: 350px;
             grid-column: span 1;
         }
 
@@ -161,15 +187,15 @@
         /* Grid Layout */
         .books-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 2rem;
         }
 
-        /* Book Card */
+        /* Template Card */
         .book-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 1.5rem;
+            padding: 1.25rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -183,15 +209,15 @@
 
         .book-image {
             width: 100%;
-            height: 320px;
+            height: 280px;
             object-fit: cover;
             background-color: #1f1f1f;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
             border: 1px solid var(--border-color);
         }
 
         .book-title {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             margin-bottom: 1.25rem;
             line-height: 1.4;
@@ -211,6 +237,7 @@
             letter-spacing: 1.5px;
             font-weight: 600;
             transition: all 0.3s ease;
+            text-align: center;
         }
 
         .btn-download:hover {
@@ -232,9 +259,9 @@
         .back-to-top {
             position: fixed;
             bottom: 5rem; /* Raised to clear bottom ad bar */
-            right: 2rem;
-            width: 45px;
-            height: 45px;
+            right: 1.5rem;
+            width: 42px;
+            height: 42px;
             background-color: var(--card-bg);
             color: var(--text-color);
             border: 1px solid var(--border-color);
@@ -260,6 +287,115 @@
             background-color: var(--hover-bg);
             color: var(--hover-text);
         }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--bg-color);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2.5rem;
+                transition: right 0.3s ease;
+                z-index: 100;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .books-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 1.25rem;
+            }
+
+            .book-card {
+                padding: 1rem;
+            }
+
+            .book-image {
+                height: 220px;
+            }
+
+            .ad-top {
+                height: 60px;
+                margin-top: 1rem;
+            }
+
+            .ad-card {
+                min-height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            .books-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.85rem;
+            }
+
+            .book-card {
+                padding: 0.85rem;
+            }
+
+            .book-image {
+                height: 180px;
+                margin-bottom: 0.85rem;
+            }
+
+            .book-title {
+                font-size: 0.88rem;
+                margin-bottom: 0.85rem;
+            }
+
+            .btn-download {
+                padding: 0.65rem 0.4rem;
+                font-size: 0.7rem;
+                letter-spacing: 1px;
+            }
+
+            .ad-top {
+                font-size: 0.7rem;
+                height: 50px;
+            }
+
+            .ad-bottom-bar {
+                font-size: 0.75rem;
+                height: 50px;
+            }
+
+            body {
+                padding-bottom: 60px;
+            }
+
+            .back-to-top {
+                bottom: 4.2rem;
+                right: 1rem;
+                width: 38px;
+                height: 38px;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -267,7 +403,14 @@
     <!-- Navigation Bar -->
     <nav>
         <div class="logo">GLOBEFLICKS</div>
-        <ul class="nav-links">
+
+        <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="books.html">Books</a></li>
             <li><a href="templates.html" class="active">Templates</a></li>
@@ -279,7 +422,7 @@
         <span><!-- Put AdSense or Ad Code Here (e.g., 728x90 Banner) --> Advertisement Space</span>
     </div>
 
-    <!-- Books Collection -->
+    <!-- Templates Collection -->
     <div class="container">
         <h2 class="page-title">Available Templates</h2>
 
@@ -290,14 +433,14 @@
 
         <div class="books-grid" id="booksGrid">
 
-            <!-- Book 1 -->
+            <!-- Card 1 -->
             <div class="book-card">
                 <img src="https://picsum.photos/300/400?random=1" alt="The Art of Minimalist Design" class="book-image">
                 <h3 class="book-title">The Art of Minimalist Design</h3>
                 <a href="#" class="btn-download" download onclick="window.open('https://www.instagram.com/globe_flicks', '_blank');">Download Template</a>
             </div>
 
-            <!-- Book 2 -->
+            <!-- Card 2 -->
             <div class="book-card">
                 <img src="https://picsum.photos/300/400?random=2" alt="Mastering Modern JavaScript" class="book-image">
                 <h3 class="book-title">Mastering Modern JavaScript</h3>
@@ -309,28 +452,28 @@
                 <span><!-- In-feed Ad Code Here --> Advertisement</span>
             </div>
 
-            <!-- Book 3 -->
+            <!-- Card 3 -->
             <div class="book-card">
                 <img src="https://picsum.photos/300/400?random=3" alt="Principles of Architecture" class="book-image">
                 <h3 class="book-title">Principles of Architecture</h3>
                 <a href="#" class="btn-download" download onclick="window.open('https://www.instagram.com/globe_flicks', '_blank');">Download template</a>
             </div>
 
-            <!-- Book 4 -->
+            <!-- Card 4 -->
             <div class="book-card">
                 <img src="https://picsum.photos/300/400?random=4" alt="Digital Photography 101" class="book-image">
                 <h3 class="book-title">Digital Photography 101</h3>
                 <a href="#" class="btn-download" download onclick="window.open('https://www.instagram.com/globe_flicks', '_blank');">Download Template</a>
             </div>
 
-            <!-- Book 5 -->
+            <!-- Card 5 -->
             <div class="book-card">
                 <img src="https://picsum.photos/300/400?random=5" alt="Creative Writing Essentials" class="book-image">
                 <h3 class="book-title">Creative Writing Essentials</h3>
                 <a href="#" class="btn-download" download onclick="window.open('https://www.instagram.com/globe_flicks', '_blank');">Download Template</a>
             </div>
 
-            <!-- Book 6 -->
+            <!-- Card 6 -->
             <div class="book-card">
                 <img src="https://picsum.photos/300/400?random=6" alt="Understanding Typography" class="book-image">
                 <h3 class="book-title">Understanding Typography</h3>
@@ -351,6 +494,14 @@
     <button class="back-to-top" id="scrollTopBtn" title="Go to top">↑</button>
 
     <script>
+        // Mobile Navigation Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
         // Live Search Functionality
         const searchInput = document.getElementById('searchInput');
         const bookCards = document.querySelectorAll('.book-card');
