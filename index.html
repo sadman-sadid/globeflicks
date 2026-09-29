@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EBook Hub - Free Digital Library</title>
+    <title>GLOBEFLICKS</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="GLOBEFLICKS.png">
     <style>
         /* CSS Reset & Variables */
         * {
@@ -130,6 +131,14 @@
             line-height: 1.6;
         }
 
+        /* Button group (holds buttons side by side) */
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
         .btn-browse {
             display: inline-block;
             padding: 1rem 2.5rem;
@@ -149,16 +158,16 @@
             color: var(--hover-text);
         }
     </style>
-    <meta name="monetag" content="9caca046b7b08ce05a7502abc1e086c4">
 </head>
 <body>
 
     <!-- Navigation Bar -->
     <nav>
-        <div class="logo">EBOOK HUB</div>
+        <div class="logo">GLOBEFLICKS</div>
         <ul class="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="books.html">Books</a></li>
+            <li><a href="templates.html">Templates</a></li>
         </ul>
     </nav>
 
@@ -169,9 +178,12 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Free Digital Library for Everyone</h1>
-        <p>Discover and download high-quality ebooks across various categories completely for free.</p>
-        <a href="books.html" class="btn-browse">Browse Books</a>
+        <h1>Free E-Books & Templates</h1>
+        <p>Discover and download high-quality E-books & Templates completely for free.</p>
+        <div class="btn-group">
+            <a href="books.html" class="btn-browse">Browse Books</a>
+            <a href="templates.html" class="btn-browse">Browse Templates</a>
+        </div>
     </section>
 
     <!-- Sticky Bottom Ad Bar Slot -->
